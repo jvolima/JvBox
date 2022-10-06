@@ -2,6 +2,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    overflow-x: hidden;
 }
 
 #containerLeft {
@@ -11,6 +12,20 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+    #containerLeft {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    #containerLeft form {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
 }
 
 #name {
@@ -44,6 +59,7 @@
 }
 
 #containerLeft form div {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
@@ -126,6 +142,12 @@
     height: 100%;
     background: var(--orange);
     position: relative;
+}
+
+@media (max-width: 1000px) {
+    #containerRight {
+        display: none;
+    }
 }
 
 #containerRight img {
