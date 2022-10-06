@@ -1,0 +1,168 @@
+#container {
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1.5rem;
+    
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header a {
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(92.42deg, var(--orange-light) 1.67%, var(--orange) 100.58%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border: 0;
+    border-radius: 4rem;
+    
+    color: var(--white);
+    font-size: 2rem;
+}
+
+header a:hover {
+    filter: brightness(0.8);
+    transition: filter 0.2s;
+}
+
+header div {
+    width: 10rem;
+    height: 4rem;
+    background: linear-gradient(92.42deg, var(--orange-light) 1.67%, var(--orange) 100.58%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50px;
+}
+
+header div span {
+    font-size: 2rem;
+    font-family: "Itim", sans-serif;
+    color: var(--white);
+}
+
+#container form {
+    position: relative;
+    max-width: 38rem;
+    width: 100%;
+    background: var(--gray-700);
+    padding: 2rem 2.5rem;
+    border-radius: 34px;
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+#formLabel {
+    position: absolute;
+    top: -20px;
+    left: 40px;
+    
+    background: var(--orange);
+    border-radius: 64px;
+    max-width: 14.5rem;
+    width: 100%;
+    height: 3.75rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#formLabel h2 {
+    font-size: 1.5rem;
+    font-family: "Itim", sans-serif;
+    color: var(--white);
+    font-weight: 400;
+}
+
+#inputList {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.containerInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.containerInput label {
+    font-size: 1.125rem;
+    color: var(--gray-500);
+}
+
+.containerInput input {
+    background: var(--gray-800);
+    height: 3.75rem;
+    border-radius: 16px;
+    border: 0;
+    padding: 1rem;
+    
+    font-size: 1.25rem;
+    color: var(--white);
+}
+
+#containerButton {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#containerButton button {
+    width: 50%;
+    height: 4.375rem;
+    background: var(--orange);
+    border-radius: 10px;
+    border: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 1.5rem;
+    font-family: "Itim", sans-serif;
+    color: var(--white);
+}
+
+#containerButton button:hover {
+    filter: brightness(0.8);
+    transition: filter 0.2s;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+footer img {
+    max-width: 30rem;
+    width: 28rem;
+    height: 30rem;
+}
