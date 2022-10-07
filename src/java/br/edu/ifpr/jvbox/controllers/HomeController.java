@@ -4,9 +4,8 @@
  */
 package br.edu.ifpr.jvbox.controllers;
 
-import br.edu.ifpr.jvbox.entities.User;
-import br.edu.ifpr.jvbox.models.UserModel;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,38 +16,21 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jvolima
  */
-@WebServlet(name = "UserRegisterController", urlPatterns = {"/UserRegisterController"})
-public class UserRegisterController extends HttpServlet {
+@WebServlet(name = "HomeController", urlPatterns = {"/HomeController"})
 
+public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("WEB-INF/userRegister.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
         
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        
-        User u = new User(name, email, password);
-        
-        UserModel model = new UserModel();
-        
-        try {
-            model.registerUser(u);
-            
-            response.sendRedirect("LoginController");
-        } catch (Exception ex) {
-            // Erro no cadastro
-            response.sendRedirect("UserRegisterController");
-        } 
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";
