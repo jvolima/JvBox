@@ -13,6 +13,7 @@ Images
 
 - id
 - name
+- description
 - image_content
 - image_type
 - user_id
@@ -30,6 +31,7 @@ CREATE TABLE Images (
 id INT NOT NULL PRIMARY KEY GENERATED ALWAYS
 AS IDENTITY (START WITH 1, increment by 1),
 name varchar(200) NOT NULL,
+description varchar(200) NOT NULL,
 image_type varchar(200) NOT NULL,
 image_content blob not null,
 id_user int NOT NULL,
