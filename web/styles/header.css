@@ -1,0 +1,56 @@
+header {
+    width: 100%;
+    background: var(--gray-800);
+}
+
+#headerContent {
+    max-width: 80rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#logo h2 {
+    font-size: 2rem;
+    color: var(--white);
+    font-weight: 400;
+}
+
+#logo span {
+    color: var(--orange);
+}
+
+#logo img {
+    margin-top: 5px;
+    width: 2rem;
+    height: 2rem;
+}
+
+#headerContent button {
+    max-width: 11.5rem;
+    width: 100%;
+    padding: 0.625rem;
+    
+    background: var(--orange);
+    border-radius: 6px;
+    border: 0;
+    
+    font-size: 1.125rem;
+    color: var(--gray-50);
+    font-weight: 700;
+}
+
+#headerContent button:hover {
+    filter: brightness(0.8);
+    transition: 0.2s filter;
+}
