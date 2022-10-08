@@ -7,14 +7,12 @@
 <%@tag description="Header" pageEncoding="UTF-8"%>
 
 <%-- any content can be specified here e.g.: --%>
-<head>
-    <link rel="stylesheet" href="./styles/header.css"/>
-    <script src="https://unpkg.com/phosphor-icons"></script>
-</head>
 
 <html>
     <head>
-        <title>title</title>
+        <link rel="stylesheet" href="./styles/header.css"/>
+        <link rel="stylesheet" href="./styles/modal.css"/>
+        <script src="https://unpkg.com/phosphor-icons"></script>
     </head>
     <body>
         <header>    
@@ -30,8 +28,8 @@
         </header>
 
         <dialog id="modal">
-            <div>
-                <h1>Hello world</h1>
+            <div id="modalHeader">
+                <h1>Nova imagem</h1>
                 <button onclick="handleCloseModal()">
                     <i class="ph-x"></i>
                 </button>
