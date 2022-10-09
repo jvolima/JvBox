@@ -49,7 +49,7 @@ public class GuestPages implements Filter {
                         session = request.getSession(true);
                         session.setAttribute("authenticated", email);
                      
-                        response.sendRedirect("HomeController");
+                        request.getRequestDispatcher("HomeController").forward(req, res);
                         break;
                     }
                 }

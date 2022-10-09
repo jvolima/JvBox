@@ -34,6 +34,20 @@
                     <i class="ph-x"></i>
                 </button>
             </div>
+            
+            <form method="post" action="AddImageController" enctype="multipart/form-data">
+                <label for="uploadInput">
+                    <i class="ph-plus"></i>
+                    Adicione sua imagem
+                </label>
+                <input type="file" name="image" id="uploadInput" />
+                <input type="text" placeholder="Título da imagem..." name="name" class="inputs" />
+                <input type="text" placeholder="Descrição da imagem..." name="description" class="inputs" />
+                
+                <button type="submit">
+                    Enviar
+                </button>
+            </form>
         </dialog>
     </body>
     

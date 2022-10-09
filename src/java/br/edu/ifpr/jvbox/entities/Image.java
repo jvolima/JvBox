@@ -11,20 +11,23 @@ package br.edu.ifpr.jvbox.entities;
 public class Image {
     private int id;
     private String name;
+    private String description;
     private String imageType;
     private byte[] imageContent;
     private int idUser;
     
-    public Image(int id, String name, String imageType, byte[] imageContent, int idUser) {
+    public Image(int id, String name, String description, String imageType, byte[] imageContent, int idUser) {
         this.id = id;
         this.name = name;
+        this.description = description;
         this.imageType = imageType;
         this.imageContent = imageContent;
         this.idUser = idUser;
     }
     
-    public Image(String name, String imageType, byte[] imageContent, int idUser) {
+    public Image(String name, String description, String imageType, byte[] imageContent, int idUser) {
         this.name = name;
+        this.description = description;
         this.imageType = imageType;
         this.imageContent = imageContent;
         this.idUser = idUser;
@@ -38,6 +41,10 @@ public class Image {
         return name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+    
     public String getImageType() {
         return imageType;
     }
@@ -58,6 +65,11 @@ public class Image {
         this.name = name;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    
     public void setImageType(String imageType) {
         this.imageType = imageType;
     }

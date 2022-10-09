@@ -44,3 +44,90 @@
     filter: brightness(0.8);
     transition: filter 0.2s;
 }
+
+form {
+    max-width: 25rem;
+    width: 100%;
+    
+    margin: 1.5rem auto;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    gap: 1.25rem;
+}
+
+.inputs {
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    background: var(--gray-800);
+    padding: 1.25rem;
+    
+    font-size: 1.125rem;
+    color: var(--gray-50);
+    font-weight: 400;
+}
+
+.inputs::placeholder {
+    color: var(--gray-100);
+}
+
+#uploadInput {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+    
+    max-width: 9.375rem;
+    width: 100%;
+    padding: 1.5rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    background: var(--gray-800);
+    border-radius: 6px;
+    
+    font-size: 1.125rem;
+    color: var(--gray-100);
+    text-align: center;
+}
+
+label:hover {
+    background: var(--orange);
+    transition: background 0.2s;
+}
+
+label i {
+    font-size: 3rem;
+}
+
+form button {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 1.25rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: var(--orange);
+    border-radius: 6px;
+    border: 0;
+    
+    font-size: 1.125rem;
+    color: var(--gray-50);
+    font-weight: 700;
+}
+
+form button:hover {
+    filter: brightness(0.8);
+    transition: 0.2s;
+}

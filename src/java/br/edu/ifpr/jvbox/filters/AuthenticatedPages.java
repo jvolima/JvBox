@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  * @author jvolima
  */
 @WebFilter(filterName = "AuthenticatedPages", 
-        servletNames = { "HomeController" })
+        servletNames = {"HomeController", "AddImageController"})
 public class AuthenticatedPages implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse res,
