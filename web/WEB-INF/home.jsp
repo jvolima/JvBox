@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib tagdir="/WEB-INF/tags/" prefix="tags" %>
 <!DOCTYPE html>
 <html>
@@ -22,48 +23,15 @@
         
         <main id="container">
             <div id="imagesList">
-                <a class="imageCard" href="">
-                    <img src="https://sm.ign.com/ign_br/screenshot/default/goku_an6e.jpg" alt="" />
-                    <div>
-                        <h3>Goku</h3>
-                        <span>The best sayajin</span>
-                    </div>
-                </a>
-                <a class="imageCard" href="">
-                    <img src="https://sm.ign.com/ign_br/screenshot/default/goku_an6e.jpg" alt="" />
-                    <div>
-                        <h3>Goku</h3>
-                        <span>The best sayajin</span>
-                    </div>
-                </a>
-                <a class="imageCard" href="">
-                    <img src="https://sm.ign.com/ign_br/screenshot/default/goku_an6e.jpg" alt="" />
-                    <div>
-                        <h3>Goku</h3>
-                        <span>The best sayajin</span>
-                    </div>
-                </a>
-                <a class="imageCard" href="">
-                    <img src="https://sm.ign.com/ign_br/screenshot/default/goku_an6e.jpg" alt="" />
-                    <div>
-                        <h3>Goku</h3>
-                        <span>The best sayajin</span>
-                    </div>
-                </a>
-                <a class="imageCard" href="">
-                    <img src="https://sm.ign.com/ign_br/screenshot/default/goku_an6e.jpg" alt="" />
-                    <div>
-                        <h3>Goku</h3>
-                        <span>The best sayajin</span>
-                    </div>
-                </a>
-                <a class="imageCard" href="">
-                    <img src="https://sm.ign.com/ign_br/screenshot/default/goku_an6e.jpg" alt="" />
-                    <div>
-                        <h3>Goku</h3>
-                        <span>The best sayajin</span>
-                    </div>
-                </a>
+                <c:forEach var="image" varStatus="status" items="${images}">
+                    <a class="imageCard" href="">
+                        <img src="DisplayImageController?id=${image.id}" alt="" />
+                        <div>
+                            <h3>${image.name}</h3>
+                            <span>${image.description}</span>
+                        </div>
+                    </a>
+                </c:forEach>
             </div>
         </main>
     </body>

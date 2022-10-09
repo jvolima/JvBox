@@ -7,6 +7,7 @@ package br.edu.ifpr.jvbox.models;
 import br.edu.ifpr.jvbox.daos.ImageDAO;
 import br.edu.ifpr.jvbox.entities.Image;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,5 +18,17 @@ public class ImageModel {
     
     public void registerImage(Image img) throws SQLException {
         dao.registerImage(img);
+    }
+    
+    public Image findImageById(int id) throws SQLException {
+        Image img = dao.findImageById(id);
+        
+        return img;
+    }
+    
+    public ArrayList<Image> listAll() throws SQLException {
+        ArrayList<Image> images = dao.listAll();
+        
+        return images;
     }
 }

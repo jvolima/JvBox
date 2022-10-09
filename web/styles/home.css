@@ -19,7 +19,8 @@
 }
 
 .imageCard {
-    width: 18rem;
+    width: 20rem;
+    min-height: 20rem;
     
     display: flex;
     flex-direction: column;

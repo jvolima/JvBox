@@ -7,8 +7,8 @@ package br.edu.ifpr.jvbox.controllers;
 import br.edu.ifpr.jvbox.entities.Image;
 import br.edu.ifpr.jvbox.models.ImageModel;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -21,29 +21,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jvolima
  */
-@WebServlet(name = "HomeController", urlPatterns = {"/HomeController"})
-
-public class HomeController extends HttpServlet {
+@WebServlet(name = "DisplayImageController", urlPatterns = {"/DisplayImageController"})
+public class DisplayImageController extends HttpServlet {
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        
         ImageModel model = new ImageModel();
         
         try {
-            ArrayList<Image> images = model.listAll();
+            Image img = model.findImageById(id);
             
-            request.setAttribute("images", images);
+            response.setContentType(img.getImageType());
+            response.getOutputStream().write(img.getImageContent());
         } catch (SQLException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DisplayImageController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        request.getRequestDispatcher("WEB-INF/home.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
     }
 
     @Override
