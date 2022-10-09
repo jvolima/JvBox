@@ -14,7 +14,34 @@
         <link rel="stylesheet" href="./styles/modal.css"/>
         <script src="https://unpkg.com/phosphor-icons"></script>
     </head>
-    <body>
+    <script>
+        var loadFile = function(event) {
+          var output = document.getElementById("output");
+          output.src = URL.createObjectURL(event.target.files[0]);
+          output.onload = function() {
+            URL.revokeObjectURL(output.src) // free memory
+          }
+          
+          imageThumb();
+        };
+        
+        function imageThumb() {
+            var input = document.getElementById("uploadInput");
+            var output = document.getElementById("output");
+            var content = document.getElementById("uploadInputContent");
+            var outputText = document.getElementById("outputText");
+            
+            if (input.value === "") {
+                outputText.style="display:none";
+                output.style="display:none";
+            } else {
+                content.style="display:none";
+                outputText.style="display:block";
+                output.style="display:block";
+            }
+        }
+    </script>
+    <body onload="imageThumb()">
         <header>    
             <div id="headerContent">
                 <div id="logo">
@@ -35,11 +62,18 @@
                 </button>
             </div>
             
-            <form method="post" action="AddImageController" enctype="multipart/form-data">
+            <form method="post" action="AddImageController" enctype="multipart/form-data" onchange="loadFile(event)" > 
                 <label for="uploadInput">
-                    <i class="ph-plus"></i>
-                    Adicione sua imagem
+                    <div id="uploadInputContent">
+                        <i class="ph-plus"></i>
+                        Adicione sua imagem
+                    </div>
+                    
+                    <img id="output" alt="" />
+                    
+                    <span id="outputText">Alterar a imagem</span>
                 </label>
+                
                 <input type="file" name="image" id="uploadInput" />
                 <input type="text" placeholder="Título da imagem..." name="name" class="inputs" />
                 <input type="text" placeholder="Descrição da imagem..." name="description" class="inputs" />
