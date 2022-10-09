@@ -24,7 +24,7 @@
         <main id="container">
             <div id="imagesList">
                 <c:forEach var="image" varStatus="status" items="${images}">
-                    <a class="imageCard" href="">
+                    <a class="imageCard" href="ImageController?id=${image.id}">
                         <img src="DisplayImageController?id=${image.id}" alt="" />
                         <div>
                             <h3>${image.name}</h3>
