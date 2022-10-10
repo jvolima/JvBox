@@ -35,8 +35,15 @@ header {
     width: 2rem;
     height: 2rem;
 }
+#actions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
 
-#headerContent button {
+#actions button {
     max-width: 11.5rem;
     width: 100%;
     padding: 0.625rem;
@@ -50,7 +57,31 @@ header {
     font-weight: 700;
 }
 
-#headerContent button:hover {
+#actions button:hover {
     filter: brightness(0.8);
     transition: 0.2s filter;
 }
+
+#actions a {
+    max-width: 5rem;
+    width: 100%;
+    padding: 0.625rem;
+    
+    background: var(--gray-700);
+    border-radius: 6px;
+    border: 0;
+    
+    font-size: 1.125rem;
+    color: var(--gray-50);
+    font-weight: 700;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+#actions a:hover {
+    filter: brightness(0.8);
+    transition: 0.2s filter;
+}
+

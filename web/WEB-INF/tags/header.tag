@@ -48,9 +48,16 @@
                     <h2>Jv<span>Box</span></h2>
                     <img src="https://i.pinimg.com/originals/a5/f9/a2/a5f9a2eb5c0bfb1f66988696e1f31334.png" />
                 </div>
-                <button onclick="handleOpenModal()">
-                    Adicionar imagem
-                </button>
+                <div id="actions">
+                    <button onclick="handleOpenModal()">
+                        Adicionar imagem
+                    </button>
+                    
+                    <a href="LogoutController">
+                        Sair
+                        <i class="ph-sign-out"></i>
+                    </a>
+                </div>
             </div>
         </header>
 
