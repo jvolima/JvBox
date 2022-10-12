@@ -102,4 +102,38 @@ public class ImageDAO {
         stmt.close();
         connection.close(); 
     }
+    
+    public void update(Image img) throws SQLException {
+        String sql = "UPDATE IMAGES SET NAME = ?, DESCRIPTION = ?, IMAGE_TYPE = ?, IMAGE_CONTENT = ? WHERE ID = ?";
+        
+        Connection connection = new ConnectionFactory().getConnection();
+        
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setString(1, img.getName());
+        stmt.setString(2, img.getDescription());
+        stmt.setString(3, img.getImageType());
+        stmt.setBytes(4, img.getImageContent());
+        stmt.setInt(5, img.getId());
+        
+        stmt.executeUpdate();
+        
+        stmt.close();
+        connection.close();
+    }
+    
+    public void updateWithoutChangeImage(Image img) throws SQLException {
+        String sql = "UPDATE IMAGES SET NAME = ?, DESCRIPTION = ? WHERE ID = ?";
+        
+        Connection connection = new ConnectionFactory().getConnection();
+        
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setString(1, img.getName());
+        stmt.setString(2, img.getDescription());
+        stmt.setInt(3, img.getId());
+        
+        stmt.executeUpdate();
+        
+        stmt.close();
+        connection.close();
+    }
 }

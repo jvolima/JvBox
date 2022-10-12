@@ -36,17 +36,17 @@
                 <div id="inputList">
                     <div class="containerInput">
                         <label for="name">Nome</label>
-                        <input type="text" name="name" id="name" />
+                        <input type="text" name="name" id="name" required />
                     </div>
                     
                     <div class="containerInput">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" />
+                        <input type="email" name="email" id="email" required />
                     </div>
                     
                     <div class="containerInput">
                         <label for="password">Senha</label>
-                        <input type="password" name="password" id="password" />
+                        <input type="password" name="password" id="password" required />
                     </div>
                 </div>
                 

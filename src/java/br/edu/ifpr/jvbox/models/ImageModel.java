@@ -35,4 +35,12 @@ public class ImageModel {
     public void removeById(int id) throws SQLException {
         dao.removeById(id);
     }
+    
+    public void update(Image img) throws SQLException {
+        dao.update(img);
+    }
+    
+    public void updateWithoutChangeImage(Image img) throws SQLException {
+        dao.updateWithoutChangeImage(img);
+    }
 }

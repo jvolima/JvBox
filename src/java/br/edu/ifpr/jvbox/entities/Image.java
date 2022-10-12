@@ -32,6 +32,10 @@ public class Image {
         this.imageContent = imageContent;
         this.idUser = idUser;
     }
+    
+    public Image() {
+        
+    }
 
     public int getId() {
         return id;

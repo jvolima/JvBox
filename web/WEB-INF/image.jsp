@@ -16,8 +16,31 @@
         <script src="https://unpkg.com/phosphor-icons"></script>
         <link rel="stylesheet" href="./styles/global.css"/>
         <link rel="stylesheet" href="./styles/image.css"/>
+        <link rel="stylesheet" href="./styles/modal.css"/>
     </head>
     <body> 
+        <script>
+            var loadFile = function(event) {
+                var output = document.getElementById("output");
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                  URL.revokeObjectURL(output.src) // free memory
+                }
+
+                imageThumb();
+            };
+        
+            function handleOpenModal() {         
+                let dialog = document.getElementById("modal");
+                dialog.showModal();
+            }
+
+            function handleCloseModal() {
+                let dialog = document.getElementById("modal");
+                dialog.close();
+            }
+        </script>
+        
         <div id="container">
             <header>
                 <div id="backContainer">
@@ -33,18 +56,59 @@
                         Apagar
                         <i class="ph-trash-fill"></i>
                     </a>
-                    <a id="update" href="UpdateImageController?id=${image.id}">
+                    <a id="update" onclick="handleOpenModal()">
                         Editar
                         <i class="ph-pencil-fill"></i>
                     </a>
                 </div>
             </header>
+                        
+            <dialog id="modal">
+                <div id="modalHeader">
+                    <h1>Alterar imagem</h1>
+                    <button onclick="handleCloseModal()">
+                        <i class="ph-x"></i>
+                    </button>
+                </div>
+                
+                <form method="post" action="UpdateImageController" enctype="multipart/form-data" onchange="loadFile(event)" > 
+                    <label for="uploadInput">               
+                        <img id="output" src="DisplayImageController?id=${image.id}" alt="" />
+
+                        <span id="outputText">Alterar a imagem</span>
+                    </label>
+                
+                    <input type="file" name="image" id="uploadInput" />
+                    
+                    <input type="hidden" name="id" value="${image.id}" />
+                    
+                    <input 
+                        type="text" 
+                        value="${image.name}" 
+                        placeholder="Título da imagem..." 
+                        name="name" 
+                        class="inputs" 
+                        required
+                    />
+                    <input 
+                        type="text" 
+                        value="${image.description}" 
+                        placeholder="Descrição da imagem..." 
+                        name="description" 
+                        class="inputs" 
+                        required
+                    />
+                
+                    <button type="submit">
+                        Alterar
+                    </button>
+                </form>
+            </dialog>
             
             <div id="imageContent">
                 <h1>${image.name}</h1>
                 <span>${image.description}</span>
-                <img src="DisplayImageController?id=${image.id}" alt="" />
-                
+                <img src="DisplayImageController?id=${image.id}" alt="" />      
             </div>
         </div>
     </body>

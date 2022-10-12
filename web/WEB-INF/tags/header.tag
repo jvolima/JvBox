@@ -92,8 +92,8 @@
                 </label>
                 
                 <input type="file" name="image" id="uploadInput" />
-                <input type="text" placeholder="Título da imagem..." name="name" class="inputs" />
-                <input type="text" placeholder="Descrição da imagem..." name="description" class="inputs" />
+                <input type="text" placeholder="Título da imagem..." name="name" class="inputs" required />
+                <input type="text" placeholder="Descrição da imagem..." name="description" class="inputs" required />
                 
                 <button type="submit">
                     Enviar
