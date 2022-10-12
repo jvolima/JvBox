@@ -45,6 +45,7 @@ CONSTRAINT fk_Images_Users FOREIGN KEY (id_user) REFERENCES Users(id)
 - Login
 - Upload de imagens
 - Mostrar imagens do usuário
+- Atualizar e deletar imagens do usuário
 
 ## Requisitos
 
