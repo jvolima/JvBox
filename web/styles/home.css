@@ -28,6 +28,11 @@
     border-radius: 6px;
 }
 
+.imageCard:hover {
+    filter: brightness(0.8);
+    transition: filter 0.2s;
+}
+
 .imageCard img {
     width: 100%;
     height: 12rem;

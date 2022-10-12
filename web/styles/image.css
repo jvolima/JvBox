@@ -12,14 +12,23 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    margin: 1.5rem;
+    padding: 1.5rem;
     
+    width: 100%;
+      
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#backContainer {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-header a {
+#backContainer a {
     width: 4rem;
     height: 4rem;
     background: linear-gradient(92.42deg, var(--orange-light) 1.67%, var(--orange) 100.58%);
@@ -35,12 +44,12 @@ header a {
     font-size: 2rem;
 }
 
-header a:hover {
+#backContainer a:hover {
     filter: brightness(0.8);
     transition: filter 0.2s;
 }
 
-header div {
+#backContainer div {
     width: 10rem;
     height: 4rem;
     background: linear-gradient(92.42deg, var(--orange-light) 1.67%, var(--orange) 100.58%);
@@ -52,10 +61,47 @@ header div {
     border-radius: 50px;
 }
 
-header div span {
+#backContainer div span {
     font-size: 2rem;
     font-family: "Itim", sans-serif;
     color: var(--white);
+}
+
+#imageActions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+#imageActions a {
+    width: 10rem;
+    padding: 1rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 0.5rem;
+    
+    border-radius: 6px;
+    border: 0;
+    
+    font-size: 1.125rem;
+    color: var(--gray-50);
+    font-weight: 700;
+}
+
+#delete {
+    background: var(--red);
+}
+
+#update {
+    background: var(--green);
+}
+
+#imageActions a:hover {
+    filter: brightness(0.8);
+    transition: 0.2s filter;
 }
 
 #imageContent {
@@ -86,5 +132,6 @@ header div span {
     height: 36rem;
     border-radius: 6px;
 }
+
 
 

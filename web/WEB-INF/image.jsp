@@ -20,11 +20,23 @@
     <body> 
         <div id="container">
             <header>
-                <a href="HomeController">
-                    <i class="ph-caret-left-bold"></i>
-                </a>
-                <div>
-                    <span>Voltar</span>
+                <div id="backContainer">
+                    <a href="HomeController">
+                        <i class="ph-caret-left-bold"></i>
+                    </a>
+                    <div>
+                        <span>Voltar</span>
+                    </div>
+                </div>
+                <div id="imageActions">
+                    <a id="delete" href="DeleteImageController?id=${image.id}">
+                        Apagar
+                        <i class="ph-trash-fill"></i>
+                    </a>
+                    <a id="update" href="UpdateImageController?id=${image.id}">
+                        Editar
+                        <i class="ph-pencil-fill"></i>
+                    </a>
                 </div>
             </header>
             
@@ -32,6 +44,7 @@
                 <h1>${image.name}</h1>
                 <span>${image.description}</span>
                 <img src="DisplayImageController?id=${image.id}" alt="" />
+                
             </div>
         </div>
     </body>

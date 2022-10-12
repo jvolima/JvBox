@@ -5,7 +5,9 @@
 package br.edu.ifpr.jvbox.controllers;
 
 import br.edu.ifpr.jvbox.entities.Image;
+import br.edu.ifpr.jvbox.entities.User;
 import br.edu.ifpr.jvbox.models.ImageModel;
+import br.edu.ifpr.jvbox.models.UserModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,8 +32,24 @@ public class HomeController extends HttpServlet {
             throws ServletException, IOException {
         ImageModel model = new ImageModel();
         
+        String email = "";
+        
+        Cookie[] cookies = request.getCookies();
+        
+        if (cookies != null) {
+            for (Cookie cookie: cookies) {
+                if ("keepLogged".equals(cookie.getName())) {
+                    email = cookie.getValue();
+                }
+            }
+        }
+        
+        UserModel userModel = new UserModel();
+        
         try {
-            ArrayList<Image> images = model.listAll();
+            User u = userModel.findUserByEmail(email);
+            
+            ArrayList<Image> images = model.listAll(u.getId());
             
             request.setAttribute("images", images);
         } catch (SQLException ex) {

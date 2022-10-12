@@ -40,6 +40,16 @@
                 output.style="display:block";
             }
         }
+        
+        function handleOpenModal() {
+            let dialog = document.getElementById("modal");
+            dialog.showModal();
+        }
+
+        function handleCloseModal() {
+            let dialog = document.getElementById("modal");
+            dialog.close();
+        }
     </script>
     <body onload="imageThumb()">
         <header>    
@@ -91,16 +101,4 @@
             </form>
         </dialog>
     </body>
-    
-    <script>
-        function handleOpenModal() {
-            let dialog = document.getElementById("modal");
-            dialog.showModal();
-        }
-
-        function handleCloseModal() {
-            let dialog = document.getElementById("modal");
-            dialog.close();
-        }
-    </script>
 </html>

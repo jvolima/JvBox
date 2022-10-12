@@ -26,9 +26,13 @@ public class ImageModel {
         return img;
     }
     
-    public ArrayList<Image> listAll() throws SQLException {
-        ArrayList<Image> images = dao.listAll();
+    public ArrayList<Image> listAll(int id_user) throws SQLException {
+        ArrayList<Image> images = dao.listAll(id_user);
         
         return images;
+    }
+    
+    public void removeById(int id) throws SQLException {
+        dao.removeById(id);
     }
 }

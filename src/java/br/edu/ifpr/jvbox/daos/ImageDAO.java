@@ -59,12 +59,15 @@ public class ImageDAO {
         return img;
     }
     
-    public ArrayList<Image> listAll() throws SQLException {
-        String sql = "SELECT ID, NAME, DESCRIPTION, IMAGE_TYPE, IMAGE_CONTENT, ID_USER FROM IMAGES";
+    public ArrayList<Image> listAll(int id_user) throws SQLException {
+        String sql = "SELECT ID, NAME, DESCRIPTION, IMAGE_TYPE, IMAGE_CONTENT, ID_USER FROM IMAGES WHERE ID_USER = ?";
         
         Connection connection = new ConnectionFactory().getConnection();
         
         PreparedStatement stmt = connection.prepareStatement(sql);
+        
+        stmt.setInt(1, id_user);
+        
         ResultSet rs = stmt.executeQuery();
         
         ArrayList<Image> images = new ArrayList();
@@ -83,5 +86,20 @@ public class ImageDAO {
         }
         
         return images;
+    }
+    
+    public void removeById(int id) throws SQLException {
+        String sql = "DELETE FROM IMAGES WHERE ID = ?";
+        
+        Connection connection = new ConnectionFactory().getConnection();
+        
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        
+        stmt.setInt(1, id);
+        
+        stmt.execute();
+        
+        stmt.close();
+        connection.close(); 
     }
 }

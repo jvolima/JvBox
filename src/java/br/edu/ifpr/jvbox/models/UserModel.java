@@ -17,8 +17,8 @@ public class UserModel {
     
     public void registerUser(User u) throws SQLException, Exception {
         User userAlreadyExists = dao.findUserByEmail(u.getEmail());
-        
-        if (userAlreadyExists.getName() != null) {
+            
+        if (userAlreadyExists != null) {
             throw new Exception("User already exists.");
         } else {
             dao.register(u);
