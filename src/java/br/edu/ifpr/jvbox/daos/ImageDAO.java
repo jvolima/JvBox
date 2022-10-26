@@ -56,6 +56,10 @@ public class ImageDAO {
             img = new Image(id, name, description, imageType, imageContent, idUser);
         }
         
+        stmt.close();
+        connection.close();
+        rs.close();
+        
         return img;
     }
     
@@ -84,6 +88,10 @@ public class ImageDAO {
             
             images.add(img);
         }
+        
+        stmt.close();
+        connection.close();
+        rs.close();
         
         return images;
     }

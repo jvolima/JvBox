@@ -51,6 +51,10 @@ public class UserDAO {
             u = new User(id, name, email, password);
         }
         
+        stmt.close();
+        connection.close();
+        rs.close();
+        
         return u;
     }
 } 
