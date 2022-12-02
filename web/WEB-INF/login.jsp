@@ -24,7 +24,7 @@
                     <h1>Jv<span>Box</span></h1>
                     <img src="https://i.pinimg.com/originals/a5/f9/a2/a5f9a2eb5c0bfb1f66988696e1f31334.png" />
                 </div>
-                <form method="post" action="LoginController">
+                <form onsubmit="logar(event)">
                     <div>
                         <input type="email" name="email" id="email" placeholder="Email" />
                         <input type="password" name="password" id="password" placeholder="Senha" />
@@ -44,4 +44,26 @@
             </div>
         </div>
     </body>
+    
+    <script>
+        async function logar(event) {
+            event.preventDefault();
+
+            let data = new FormData(event.target);
+
+            let resultado = await fetch('LoginController', {
+                method: 'post',
+                body: data
+            });
+            
+            let resultadoData = await resultado.json();
+            
+            if(!resultadoData.status){
+               location.href = "HomeController";
+            }
+            else {
+                alert(resultadoData.Message);
+            }
+        }
+    </script>
 </html>

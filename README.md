@@ -58,3 +58,4 @@ CONSTRAINT fk_Images_Users FOREIGN KEY (id_user) REFERENCES Users(id)
 - Tag Libs
 - MVC
 - Upload e Reprodução de imagens
+- Ajax
