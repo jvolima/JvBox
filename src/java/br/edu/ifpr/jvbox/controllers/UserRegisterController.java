@@ -6,8 +6,13 @@ package br.edu.ifpr.jvbox.controllers;
 
 import br.edu.ifpr.jvbox.entities.User;
 import br.edu.ifpr.jvbox.models.UserModel;
+import com.google.gson.Gson;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author jvolima
  */
 @WebServlet(name = "UserRegisterController", urlPatterns = {"/UserRegisterController"})
+@MultipartConfig()
 public class UserRegisterController extends HttpServlet {
 
     @Override
@@ -40,13 +46,23 @@ public class UserRegisterController extends HttpServlet {
         UserModel model = new UserModel();
         
         try {
-            model.registerUser(u);
-            
-            response.sendRedirect("LoginController");
+            User userAlreadyExists = model.registerUser(u);
+                        
+            if (userAlreadyExists != null) {
+                Gson gsonParser = new Gson();
+                PrintWriter out = response.getWriter();
+                out.print(gsonParser.toJson(new br.edu.ifpr.jvbox.errors.Error(400, "Ja existe um usuario com esse email cadastrado.")));
+            } else {
+                Gson gsonParser = new Gson();
+                PrintWriter out = response.getWriter();
+                   
+                String message = "Cadastro realizado com sucesso.";
+                
+                out.print(gsonParser.toJson(message));
+            }
         } catch (Exception ex) {
-            // Erro no cadastro
-            response.sendRedirect("UserRegisterController");
-        } 
+            Logger.getLogger(UserRegisterController.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }
     
     @Override

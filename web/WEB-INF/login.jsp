@@ -24,7 +24,7 @@
                     <h1>Jv<span>Box</span></h1>
                     <img src="https://i.pinimg.com/originals/a5/f9/a2/a5f9a2eb5c0bfb1f66988696e1f31334.png" />
                 </div>
-                <form onsubmit="logar(event)">
+                <form onsubmit="login(event)">
                     <div>
                         <input type="email" name="email" id="email" placeholder="Email" />
                         <input type="password" name="password" id="password" placeholder="Senha" />
@@ -46,7 +46,7 @@
     </body>
     
     <script>
-        async function logar(event) {
+        async function login(event) {
             event.preventDefault();
 
             let data = new FormData(event.target);
@@ -63,6 +63,9 @@
             }
             else {
                 alert(resultadoData.Message);
+                
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
             }
         }
     </script>

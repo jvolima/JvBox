@@ -29,7 +29,7 @@
                 </div>
             </header>   
             
-            <form method="post" action="UserRegisterController">
+            <form onsubmit="register(event)">
                 <div id="formLabel">
                     <h2>Cadastro</h2>
                 </div>
@@ -60,4 +60,31 @@
             </footer>
         </div>
     </body>
+    
+    <script>
+        async function register(event) {
+            event.preventDefault();
+
+            let data = new FormData(event.target);
+
+            let resultado = await fetch('UserRegisterController', {
+                method: 'post',
+                body: data
+            });
+            
+            let resultadoData = await resultado.json();
+            
+            if(!resultadoData.status){
+               alert("Cadastro realizado com sucesso.");
+               location.href = "LoginController";
+            }
+            else {
+                alert(resultadoData.Message);
+                
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
+                document.getElementById("name").value = "";
+            }
+        }
+    </script>
 </html>

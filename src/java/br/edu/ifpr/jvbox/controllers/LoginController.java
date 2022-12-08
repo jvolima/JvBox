@@ -38,7 +38,7 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException {    
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -63,7 +63,7 @@ public class LoginController extends HttpServlet {
             } else {
                 Gson gsonParser = new Gson();
                 PrintWriter out = response.getWriter();
-                out.print(gsonParser.toJson(new Error(403, "Email ou senha incorretos.")));
+                out.print(gsonParser.toJson(new Error(401, "Email ou senha incorretos.")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

@@ -15,13 +15,15 @@ import java.sql.SQLException;
 public class UserModel {
     UserDAO dao = new UserDAO();
     
-    public void registerUser(User u) throws SQLException, Exception {
+    public User registerUser(User u) throws SQLException, Exception {
         User userAlreadyExists = dao.findUserByEmail(u.getEmail());
             
         if (userAlreadyExists != null) {
-            throw new Exception("User already exists.");
+            return userAlreadyExists;
         } else {
             dao.register(u);
+            
+            return null;
         }   
     }
     
